@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    //1. arrow function 
+    const sum = (a, b) => {
+        return a + b
+    }
+    console.log(sum(1,2))
+
+    const log = (name) => name; //khong can viet return
+    console.log('Tuaans')
+
+    //return truc tiep ra object
+    const student = (name, age) => ({name: name, age: age})
+    console.log(student('Tuan', 20))
+
+    //Ex1: 
+    const logger = log => console.log(log);
+    logger('Massage...')
+
+    //Ex2:
+    const course = {
+        name: 'Javascript basic!',
+        age: 18,
+        getName: function(){
+            return this.name
+        },
+        getAge: () => this.age // không dùng đc arow function để viết hàm dạng này trong object
+    }
+    console.log(course.getName())
+    console.log(course.getAge())
+
+    //note arrow function không thể dùng để làm object constructor
+
+    const author = function(name, age){
+        this.nameAuthor = name,
+        this.ageAuthor = age
+    }
+
+    const tuanAuthor = new author('Tuan' ,20)
+    console.log(tuanAuthor)
+
+
+
+    const author1 = (name, age) => {   //viet the nay se bi loi " is not a constructor "
+        this.nameAuthor = name,
+        this.ageAuthor = age
+    }
+
+    // const tuanAuthor1 = new author1('Tuan' ,20)
+
+
+    //2. ---------------------------------Class------------------------------------
+    class Course1 {
+        constructor(name, price){
+            this.name = name
+            this.price = price
+        }
+
+        getName(){
+            return this.name
+        }
+        getPrice(){
+            return this.price
+        }
+
+        run(){
+            const isSuccess = false
+
+        }
+    }
+
+    const Javascript = new Course1('Javascript', 1000)
+    console.log(Javascript)
+
+
+    //3. ---------------------------------Default parameter values------------------------------------
+    function logger1(log, type = 'log'){
+        console[type](log)
+    }
+
+    logger1('Message...', 'error')
+</script>
+</html>
